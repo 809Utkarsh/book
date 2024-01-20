@@ -1,5 +1,3 @@
-// // C:\Users\Utkarsh Raj\go\src\github.com\ut\go-crud
-
 package main
 
 import (
@@ -18,9 +16,9 @@ type Book struct {
 
 // bookDB simulates a simple in-memory database
 var bookDB = []Book{
-	{ID: "1", Title: "XYZ", Author: "ABC", Quantity: 2},
-	{ID: "2", Title: "The Great Gatsby", Author: "F. Scott Fitzgerald", Quantity: 5},
-	{ID: "3", Title: "War and Peace", Author: "Leo Tolstoy", Quantity: 6},
+	{ID: "1", Title: "the lean startup", Author: "zuccci", Quantity: 2},
+	{ID: "2", Title: "The Great wall of china", Author: "lee wang", Quantity: 5},
+	{ID: "3", Title: "War war with  peace", Author: "atfered lister", Quantity: 6},
 }
 
 // setupRouter configures the Gin router and defines routes
@@ -53,6 +51,11 @@ func createBook(c *gin.Context) {
 }
 
 // deleteBook handles the DELETE request to delete a book by ID
+// here through gin we get the id then we match if book found or not
+// if book not found gives -1 if found we use dsa
+// where we skip the miidle book by adding from 1st part
+// till the defined book and after the index book to last
+// and then we delete the book
 func deleteBook(c *gin.Context) {
 	id := c.Param("id")
 
